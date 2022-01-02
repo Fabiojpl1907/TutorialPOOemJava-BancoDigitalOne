@@ -13,4 +13,19 @@ public class ContaCorrente {
     }
     public void transferir(){
     }
+
+    // expor acesso - getters
+    // sem expor os modificadores ( setters )
+
+    public int getGencia() {
+        return gencia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
 }

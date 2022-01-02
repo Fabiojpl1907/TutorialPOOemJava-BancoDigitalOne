@@ -129,7 +129,7 @@ Outro exemplo usando os get (obter) e set (ajustar)
 
 
 
-11 - **Atributos não devem ser publicos** , por padão em java os atributos devem ser privados ( só a classe em queque foram criados acessa ) .Evita modificações acidentais e/ou erros de difícil identificação . Alterando nas classes . O métodos se mantem publicos pois serão usados para realizar as ações necessárias a partir de outros pontos do programa. 
+11 - **Atributos não devem ser publicos** , por padão em java os atributos devem ser privados ( só a classe em que  foram criados acessa ) .Evita modificações acidentais e/ou erros de difícil identificação . Alterando nas classes . O métodos se mantem publicos pois serão as interfaces de uso  para realizar as ações necessárias ( sacar / depositar / transferir )
 
 ```
 public class ContaCorrente{  
@@ -179,7 +179,146 @@ public Cliente {
 
 ```
 
+12 - Definir quando cada atributo pode ser alterado. O que vai poder ser ajustado somente em momentos espeficíficos, e o que poderia alterar a qualquer momento pelo usuário em uma interface . 
 
+14 - Em conta corrente e de poupança,a principio não tem lógica de negócio, alguem de fora ficar alterando  seus atributos . Assim vamos disponibilzar somente neste momento os Get ( obter a informação  )
+
+**Conta e numero** , só será fornecida no ato da abertura da conta
+
+**Saldo** poderá ser alterado a qualquer  dentro de regra mais rígidas . 
+
+Lembrando encapsulamento tem haver com a classe de uso/instancia  do objeto 
+
+```
+public class ContaCorrente {
+    // atributos
+    private  int gencia;
+    private int numero;
+    private double saldo;
+
+    // comportamentos - métodos
+    public void sacar(){
+    }
+    public void depositar(){
+    }
+    public void transferir(){
+    }
+    
+    // expor acesso - getters
+    // sem expor os modificadores ( setters ) 
+
+    public int getGencia() {
+        return gencia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+```
+
+```
+public class ContaPoupanca {
+    // atributos
+    private  int gencia;
+    private int numero;
+    private double saldo;
+
+    // comportamentos - métodos
+    public void sacar(){
+    }
+    public void depositar(){
+    }
+    public void transferir(){
+    }
+
+    // expor acesso - getters
+    // sem expor os modificadores ( setters )
+
+
+    public int getGencia() {
+        return gencia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+```
+
+
+
+15 - Para Banco e Cliente , neste momento vamos expor tanto a possibilidade de obter o valor atual do atributo  ( get ) , quanto a possibilidade  de ajustar os atributos ( set ) 
+
+```
+public class Banco {
+    // atributos
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
+```
+
+```
+public class Cliente {
+    // atributos
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+notas a serem utilizadas 
 
 ---------------------------------
 
