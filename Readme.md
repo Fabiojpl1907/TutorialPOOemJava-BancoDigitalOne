@@ -1,8 +1,6 @@
 
 
-
-
-**Destrinchando uma solução Java - Banco Digital** 
+## **Tutorial de Programação Orientada a Objetos em Java Banco Digital** 
 
 Para que, tendo um problema , voce seja capaz de apresentar uma solução em Java , utilizando  o paradigma de **Programação Orientada a Objeto** **- POO**  , é preciso seguir uma linha de raciocínio.
 
@@ -14,10 +12,8 @@ A construção
 
 - Se dará a partir de um codigo simples , o qual  será melhorado a cada introdução de um novo conceito dentro da Orientação a Objeto
 - registrado no git hub.  A  **main** conterá o compilado do projeto , e cada branch registrara os passos de cosntrução da solução , considerando os pilares da POO : Abstração / Encapsulamento / Herança / Polimorfismo, e outros pontos importantes do projeto. 
-
-Premisas : Conhecimento básico de Java e de alguma IDE. 
-
-Fonte do projeto em java  : Criando um Banco Digital com Java e Orientação a Objetos. Prof. Venilton Favo Jr , Bootcamp Amdosc , Dio.
+- Premisas : Conhecimento básico de Java e de alguma IDE. 
+- Fonte do projeto em java  : Criando um Banco Digital com Java e Orientação a Objetos. Prof. Venilton Favo Jr , Bootcamp Amdosc , Dio.
 
 
 
@@ -26,7 +22,7 @@ Fonte do projeto em java  : Criando um Banco Digital com Java e Orientação a O
 |   1   | Entender o problema , ou  domínio onde aplicação ira atuar. Nossa capacidde de construir a solução esta ligada diretamente  no conhecimento que temos do problema |
 |   2   | Situação a ser tratada <br />	“Um banco oferece aos seus clientes dois tipos de contas (corrente e poupança), as quais possuem as funcionalidades de depósito, saque e transferência(entre contas da própria instituição).” |
 |   3   | Conceito  ser implantado nos proximos passo<br />***Abstração*** - Habilidade de concentrar-se nos aspectos essenciais de um domínio, ignorando características menos importantes ou acidentais. Nesse contexto, objetos são abstrações de entidades existentes no domínio em questão. |
-|   4   | Criar o projeto em sua IDE preferida <br />construi com a minha versão com o  Intellij, em projeto simple   ) |
+|   4   | Criar o projeto em sua IDE preferida <br />construi minha versão com o  Intellij, em projeto simples , em Java 11.<br />Como boa prática, coloco codigos em pacotes ( packages), que tem como função organizar os vários códigos dentro dos papeis que cumpre na solução ( classes , interfaces , controles, etc ) |
 |   5   | Identificar no dominio , quais são os objetos, atributos e comportamentos do mundo real que vamos precisar implantar em nossa solução, e criar classes java para representar este objetos . Isto é abstrair a solução .<br />Em nosso dominio que um Banco , um *objeto* ou entidade  pode ser uma conta bancaria , esta conta possue como *atributo* o seu numero e agencia , e um *comportamento* esperado é ser possivel abrir conta e efetura deposito na mesma. |
 |   6   | Em Java , *objeto*/entidade são representado pelas *classes*, *Atributos* pelas *variaveis* , e o *comportamento* pelo *métodos* . |
 
@@ -115,21 +111,20 @@ public Cliente {
 
 -----------------------------------------------------------------------------------------------------------------------
 
-1. Objetivo - Entender Conceitos basicos de Programação Orientada a Objeto  
-1. Feito em Eclipse
-1. Principiais conceitos aplicados 
-
-**Abstração**
-
-Habilidade de concentrar-se nos aspectos essenciais de um domínio, ignorando características menos importantes ou acidentais. Nesse contexto, objetos são abstrações de entidades existentes no domínio em questão.
-
 
 
 **Encapsulamento**
 
-Encapsular significa esconder a implementação dos objetos, criando assim interfaces de uso mais concisas e fáceis de usar/entender. O encapsulamento favorece principalmente dois aspectos de um sistema: a manutenção e a evolução.
+Encapsular significa esconder a implementação dos objetos, que não fazem sentido serem expostas ( por exemplo a alteração de saldo ) criando assim interfaces de uso mais concisas e fáceis de usar/entender. O encapsulamento favorece principalmente dois aspectos de um sistema: a manutenção e a evolução.
 
-Encapsular - definir uma interface de uso de forma coesa e simples. Não expor mais que o necessário, não externalizar tudo que tenho
+Encapsulamneto não é somente get e set ( metodos de acesso e atribuição ) , é construir um inteface que faça sentido dentro do que esta sendo modelado 
+
+a essencia do encapsulamento - definir uma interface de uso de forma coesa e simples. Não expor mais que o necessário, não externalizar tudo que tenho.
+
+A inteface deve ser simples , direta e FUNCIONAL.
+Exemplo de um inteface : Controle remoto da TV . Deve permitir  de maneira fácil e rápida escolher canal , aumenta som, dar pause , colocar em mudo. O que ocorre para tudo isto ocorra fica encapsulado dentro deu controle e da TV , o usuario não precisa e não deve acessar . 
+
+ 
 
 Expor uso ->  set - permite alterar
 nao expor uso ->    get - Permite somente obter a informação  
