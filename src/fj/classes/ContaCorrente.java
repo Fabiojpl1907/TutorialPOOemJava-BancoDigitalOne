@@ -2,9 +2,9 @@ package fj.classes;
 
 public class ContaCorrente {
     // atributos
-    public  int gencia;
-    public int numero;
-    public double saldo;
+    private  int gencia;
+    private int numero;
+    private double saldo;
 
     // comportamentos - métodos
     public void sacar(){

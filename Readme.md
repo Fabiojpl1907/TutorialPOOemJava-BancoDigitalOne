@@ -107,29 +107,81 @@ public Cliente {
 }
 ```
 
+10 - Conceito a ser implantado nos próximos passos - **Encapsulamento** 
 
+```
+Encapsular significa esconder a implementação dos objetos, que não fazem sentido serem expostas, criando assim interfaces de uso mais concisas e fáceis de usar/entender. O encapsulamento favorece principalmente dois aspectos de um sistema: a manutenção e a evolução.
 
------------------------------------------------------------------------------------------------------------------------
-
-
-
-**Encapsulamento**
-
-Encapsular significa esconder a implementação dos objetos, que não fazem sentido serem expostas ( por exemplo a alteração de saldo ) criando assim interfaces de uso mais concisas e fáceis de usar/entender. O encapsulamento favorece principalmente dois aspectos de um sistema: a manutenção e a evolução.
-
-Encapsulamneto não é somente get e set ( metodos de acesso e atribuição ) , é construir um inteface que faça sentido dentro do que esta sendo modelado 
-
-a essencia do encapsulamento - definir uma interface de uso de forma coesa e simples. Não expor mais que o necessário, não externalizar tudo que tenho.
+A essencia do encapsulamento - definir uma interface de uso de forma coesa e simples. Não expor mais que o necessário, não externalizar tudo que tenho.
 
 A inteface deve ser simples , direta e FUNCIONAL.
 Exemplo de um inteface : Controle remoto da TV . Deve permitir  de maneira fácil e rápida escolher canal , aumenta som, dar pause , colocar em mudo. O que ocorre para tudo isto ocorra fica encapsulado dentro deu controle e da TV , o usuario não precisa e não deve acessar . 
 
+ Encapsulamneto não é somente get e set (metodos de acesso e atribuição), é construir um inteface que faça sentido dentro do que esta sendo modelado
  
+Outro exemplo usando os get (obter) e set (ajustar)
+			Expor uso ->  set - permite alterar - botão de volume do controle remoto.
+													Coloco o volume que quero
+			nao expor uso ->    get - Permite somente obter a informação - 
+													botão de programação do controle remoto
+													Só consigo visualizar a programação , mas não altera-la
+```
 
-Expor uso ->  set - permite alterar
-nao expor uso ->    get - Permite somente obter a informação  
 
 
+11 - **Atributos não devem ser publicos** , por padão em java os atributos devem ser privados ( só a classe em queque foram criados acessa ) .Evita modificações acidentais e/ou erros de difícil identificação . Alterando nas classes . O métodos se mantem publicos pois serão usados para realizar as ações necessárias a partir de outros pontos do programa. 
+
+```
+public class ContaCorrente{  
+			// atributos
+			private  int gencia;   
+			private int numero;
+			private double saldo;
+			
+
+			// comportamentos - métodos 
+			public void sacar(){ 
+			}
+			public void depositar(){ 
+			}
+			public void transferir(){ 
+			}
+
+}
+
+public class ContaPoupanca{  
+			// atributos
+			private  int gencia;   
+			private int numero;
+			private double saldo; 
+			
+
+			// comportamentos - métodos 
+			public void sacar(){ 
+			}
+			public void depositar(){ 
+			}
+			public void transferir(){ 
+			}
+
+}
+
+public Banco {
+	// atributos
+	private String nome; 
+}
+
+public Cliente {
+	// atributos
+	private String nome; 
+}
+
+
+```
+
+
+
+---------------------------------
 
 **Herança**
 
