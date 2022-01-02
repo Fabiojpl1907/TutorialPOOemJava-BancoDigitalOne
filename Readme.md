@@ -290,27 +290,80 @@ public class Cliente {
 
 
 
+16 - Conceito a ser implantado nos próximos passos - **Herança** 
+
+```
+Conceito que traz em sí a reutilização de código, evitando a duplicação desbecessária de código. Veja como as classes Conta Corrente e Conta Poupança tem códigos repetidos, estruturas identica , sinalinado que poderiamos term uma "super"classe , tambem chamada classe "pai". Herança traz o conceto de DRY ( Do not repat yorself). 
+
+Herança: Permite que você defina uma classe filha que reutiliza (herda), estende ou modifica o comportamento de uma classe pai. A classe cujos membros são herdados é chamada de classe base. A classe que herda os membros da classe base é chamada de classe derivada.
+```
 
 
 
+17 - Criar a super classe (pai ) **Conta**  , com todas as caracteristicas que tem nas contacorrente / poupança 
+
+```
+public class Conta { 
+    
+    // atributos
+    private  int gencia;
+    private int numero;
+    private double saldo;
+
+    // comportamentos - métodos
+    public void sacar(){
+    }
+    public void depositar(){
+    }
+    public void transferir(){
+    }
+
+    // expor acesso - getters
+    // sem expor os modificadores ( setters )
+
+    public int getGencia() {
+        return gencia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+```
 
 
 
+17 - Fazer com que as classe ContaCorrente e Conta Poupança  herdem as caracteristicas da classe pai Conta. 
+
+Classe pai - Conta
+					atributos da classe pai :  agencia , numero , saldo
+					métodos da classe pai : sacar , transferir , depositar
+
+​	Classe filha - Conta Corrente
+​					herda todos os atributos e métodos da classe pai. 
+
+​	No java falamos que estas classes filhas (ContaCorente / ContaPoupanca) extendem a classe pai ( Conta ).
+
+```
+public class ContaCorrente extends Conta {
+
+}
+
+```
+
+```
+public class ContaPoupanca extends Conta {
+
+}
+```
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+17 - Fazer c
 
 
 
@@ -321,28 +374,6 @@ public class Cliente {
 notas a serem utilizadas 
 
 ---------------------------------
-
-**Herança**
-
-Permite que você defina uma classe filha que reutiliza (herda), estende ou modifica o comportamento de uma classe pai. A classe cujos membros são herdados é chamada de classe base. A classe que herda os membros da classe base é chamada de classe derivada.
-
-DRY - Nunca repita voce mesmo - nunca repita um código 
-
-Crio uma classe pai e a classe filha extensa classe pai herda tudo da classe pai
-
-Exemplo :
-
-Classe pai - Conta 
-
-​		atributos da classe pai :  agencia , numero , saldo 
-
-​		métodos da classe pai : sacar , transferir , depositar
-
-Classe filha - Conta Corrente 
-
-​	herda todos os atributos e métodos da classe pai. Falamos que a classe filha extende a clase pai 
-
-​            public class ContaCorrente extends Conta { .... } 
 
 **Interface**
 
