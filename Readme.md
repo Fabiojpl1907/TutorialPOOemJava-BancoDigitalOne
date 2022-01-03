@@ -538,37 +538,32 @@ public abstract class Conta implements iConta {
 
 
 
+**26** - Conceito a ser implantado nos próximos passos - **Polimorfismo**
+
+Capacidade de um objeto poder **ser referenciado** de várias formas, ou seja, é capacidade de tratar os objetos da forma que for mais conveniente no contexto . 
+
+<font size="2">Exemplo : dado um objeto do mundo real , uma pessoa , por exemplo, posso me referenciar  a ela de várias formas : pelo seu nome , por sua relacão pessoal ( amiga/ colaboradora) , por sua profissão ( minha Arquiteta ), etc. Em cada contexto voce utiliza o que mais se adequa, porem o objto em sí ( a pessoa ) não muda . </font>
+
+No projeto, posso tratar como conta ou conta corrente o que fizer mais lógica no momento . Se estou usando um método genérico que esta em Conta ou algo especifico que esta em contaCorrente.
+
+Na classe interface , no metodo transferir , nos referenciamos a Conta , mas poderiamos ter referenciado a conta corrente ou poupança , conforme fizesse mais sentido . 
+
+```
+// assinatura de transferir -> tem que ser indicado o valor a ser movimentado
+// e para qual conta
+void transferir( Conta contaDestino, Double valor);
+```
+
+<font size="2">Nota:  Cuidado, polimorfismo não quer dizer que o objeto fica se transformando, muito pelo contrário, um objeto nasce de um tipo e morre daquele tipo, o que pode mudar é a maneira como nos referimos a ele.</font>
 
 
 
+**27** -Conceito a ser implantado nos próximos passos - **Modificadores de Acesso**
 
+​		**public** - geral. Todo projeto enxerga
 
+​		**default** - somente dentro do mesmo pacote 
 
+​		**private** - somente a classe acessa 
 
-
-
-
-notas a serem utilizadas 
-
----------------------------------
-
-**Polimorfismo**
-
-Capacidade de um objeto poder ser referenciado de várias formas, ou seja, é capacidade de tratar objetos criados a partir das classes específicas como objetos de uma classe genérica. Cuidado, polimorfismo não quer dizer que o objeto fica se transformando, muito pelo contrário, um objeto nasce de um tipo e morre daquele tipo, o que pode mudar é a maneira como nos referimos a ele.
-
-
-
-Manipular um objeto da forma mais conveniente a voce . Posso trata como conta ou conta corrente o que fizer mais lógica no momento . Se estou usando um método genérico que esta em conta ou algo especifico que esta em CC.  Conta conta = new Contacorrente()
-
-
-Muda a forma de referenciar , *<u>não muda o objeto</u>* … 
-
-Usar a hierarquia / diversidade de tipos a seu favor .
-
-
-
-**Modificadores**
-	public - geral. Todo projeto enxerga
-	default - somente dentro do mesmo pacote 
-	private - somente  a classe acessa 
-	protected -  so quem herda , enxerga 
+​		**protected** - so quem herda ( classe filha ) enxerga 
