@@ -40,14 +40,14 @@ public class Cliente{ }
 ```
 public class ContaCorrente{ 
 			// atributos
-			public  int gencia;   
+			public  int agencia;   
 			public int numero;
 			public double saldo;
 }
 
 public class ContaPoupanca{  
 			// atributos
-			public  int gencia;   
+			public  int agencia;   
 			public int numero;
 			public double saldo; 
 }
@@ -68,7 +68,7 @@ public Cliente {
 ```
 public class ContaCorrente{  
 			// atributos
-			public  int gencia;   
+			public  int agencia;   
 			public int numero;
 			public double saldo;
 			
@@ -83,7 +83,7 @@ public class ContaCorrente{
 
 public class ContaPoupanca{  
 			// atributos
-			public  int gencia;   
+			public  int agencia;   
 			public int numero;
 			public double saldo; 
 			
@@ -134,7 +134,7 @@ Outro exemplo usando os get (obter) e set (ajustar)
 ```
 public class ContaCorrente{  
 			// atributos
-			private  int gencia;   
+			private  int agencia;   
 			private int numero;
 			private double saldo;
 			
@@ -151,7 +151,7 @@ public class ContaCorrente{
 
 public class ContaPoupanca{  
 			// atributos
-			private  int gencia;   
+			private  int agencia;   
 			private int numero;
 			private double saldo; 
 			
@@ -192,7 +192,7 @@ Lembrando encapsulamento tem haver com a classe de uso/instancia  do objeto
 ```
 public class ContaCorrente {
     // atributos
-    private  int gencia;
+    private  int agencia;
     private int numero;
     private double saldo;
 
@@ -207,8 +207,8 @@ public class ContaCorrente {
     // expor acesso - getters
     // sem expor os modificadores ( setters ) 
 
-    public int getGencia() {
-        return gencia;
+    public int getAgencia() {
+        return agencia;
     }
 
     public int getNumero() {
@@ -224,7 +224,7 @@ public class ContaCorrente {
 ```
 public class ContaPoupanca {
     // atributos
-    private  int gencia;
+    private  int agencia;
     private int numero;
     private double saldo;
 
@@ -240,8 +240,8 @@ public class ContaPoupanca {
     // sem expor os modificadores ( setters )
 
 
-    public int getGencia() {
-        return gencia;
+    public int getAgencia() {
+        return agencia;
     }
 
     public int getNumero() {
@@ -300,13 +300,13 @@ Herança: Permite que você defina uma classe filha que reutiliza (herda), esten
 
 
 
-**16** - Criar a super classe (pai ) **Conta**  , com todas as caracteristicas que tem nas contacorrente / poupança 
+**16** - Criar a super classe (pai ) **Conta**  , com todas as caracteristicas que tem nas contas corrente / poupança 
 
 ```
 public class Conta { 
     
     // atributos
-    private  int gencia;
+    private  int agencia;
     private int numero;
     private double saldo;
 
@@ -321,8 +321,8 @@ public class Conta {
     // expor acesso - getters
     // sem expor os modificadores ( setters )
 
-    public int getGencia() {
-        return gencia;
+    public int getAgencia() {
+        return agencia;
     }
 
     public int getNumero() {
@@ -439,15 +439,15 @@ public interface iConta {
 ```
 public class Conta implements iConta {
         // atributos
-        private  int gencia;
+        private  int agencia;
         private int numero;
         private double saldo;
 
          // expor acesso - getters
         // sem expor os modificadores ( setters )
 
-        public int getGencia() {
-            return gencia;
+        public int getAgencia() {
+            return agencia;
         }
 
         public int getNumero() {
@@ -524,7 +524,7 @@ public class Conta implements iConta {
 
 **25** - Uma camada a mais de segurança e encapsulamento - Transformar  a classe "Conta" em Abstata , por questão estratégica. 
 
-Tornar a classe Conta abstrata , garanto que ninguem a instancie diretamente ( classe abstrata não pode ser instanciada) .
+Tornar a classe Conta abstrata , garante que ninguem a instancie diretamente ( classe abstrata não pode ser instanciada) .
 
 Como a conta precisa ser ou corrente ou poupança , ao tornar Conta classe abstrata , garantimos que não será possivel instanciar/criar diretamente pela classe Conta , somente por suas filhas , contaCorrente, contaPoupança . 
 
@@ -571,4 +571,4 @@ Usar a hierarquia / diversidade de tipos a seu favor .
 	public - geral. Todo projeto enxerga
 	default - somente dentro do mesmo pacote 
 	private - somente  a classe acessa 
-	protected -  so que herda , enxerga 
+	protected -  so quem herda , enxerga 
