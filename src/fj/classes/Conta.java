@@ -5,12 +5,23 @@ package fj.classes;
 import fj.interfaces.iConta;
 
 public abstract class Conta implements iConta {
-        // atributos
-        private  int agencia;
-        private int numero;
-        private double saldo;
 
-         // expor acesso - getters
+        private static final int AGENCIA_PADRAO = 1 ;
+        private static int SEQUENCIAL =1 ;
+
+        // atributos
+        protected int agencia;
+        protected int numero;
+        protected double saldo;
+
+        // constutor de conta
+        public Conta() {
+           this.agencia = AGENCIA_PADRAO ;
+           this .numero = SEQUENCIAL++;
+        }
+
+
+    // expor acesso - getters
         // sem expor os modificadores ( setters )
 
 

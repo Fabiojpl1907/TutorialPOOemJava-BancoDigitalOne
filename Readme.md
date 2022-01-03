@@ -2,7 +2,7 @@
 
 ## **Tutorial de Programação Orientada a Objetos em Java Banco Digital** 
 
-Para que, tendo um problema , voce seja capaz de apresentar uma solução em Java , utilizando  o paradigma de **Programação Orientada a Objeto** **- POO**  , é preciso seguir uma linha de raciocínio.
+Para que, tendo um problema voce seja capaz de apresentar uma solução em Java , utilizando  o paradigma de **Programação Orientada a Objeto** **- POO**, é preciso seguir uma linha de raciocínio.
 
 Conhecer  a linha de raciocinio permite **irmos de uma situação a ser resolvida até o programa java que implementa as funcionalidades**.  
 
@@ -567,3 +567,112 @@ void transferir( Conta contaDestino, Double valor);
 ​		**private** - somente a classe acessa 
 
 ​		**protected** - so quem herda ( classe filha ) enxerga 
+
+
+
+**28** - Trabalhando no encapsulamento e herança. 
+
+​		Alterar o acesso dos atibutos da Conta de : private  para: protected 
+​				private so a classe Conta acessa , protected a classe filha pode acessar , e assim não precisa
+​                trabalhar diretamente com a classe Conta , e nao abre para outras classes
+
+```
+public abstract class Conta implements iConta {
+        // atributos
+        protected int agencia;
+        protected int numero;
+        protected double saldo;
+... 
+}        
+```
+
+<font size="2"> nota :   Os  **...**    informa que há mais codigo que não foram alterados neste passo , e não foram repetidos aqui para não deixar o tutorial maior do que  já precisa ser.</font>
+
+**29** - Construtor para contaCorrente  / contaPoupança - I 
+
+- A agencia será sempre 1, e como a agencia é independete de ser conta corrente  ou poupança , sua definição sera na classe Conta , como constante static e final ( seu valor não pode ser alterdo) . 
+- O numero da conta corrente sera um sequencial controlado pelo proprio objeto contaCorrente/ contaPoupança, em uma constante static dentro da classe. Ao tornar a constante static , ela tera relação o objeto  contaCorrente e não com a instância de uma contaCorrente . Ao ser instaciada uma nova conta , o proprio objeto ContaCorrente lhe fornece um numero.  
+
+Colocando isto no construtor não corre o risco de ser criada agencia com outro numero , e o sequencial das contas serão gerados automaticamente , um sequencial para conta corrente e outro para conta poupança. 
+
+<font size="2"> Notas</font> 
+
+<font size="2"> 1. o **super** faz a IDE procurar os atributos disponieis na classe pai da classe onde estou </font> 
+
+<font size="2">2. Como em Conta , os atributos estão protected , ao digitar **super.**  a IDE ja nos mostra a lista de atributos/metodos pra escolher  </font>
+
+![Screen Shot 2022-01-03 at 17.14.45](https://tva1.sinaimg.cn/large/008i3skNgy1gy16asqkhzj30gu046mx9.jpg)
+
+
+
+```
+public abstract class Conta implements iConta {
+        // atributos
+        protected int agencia;
+        protected int numero;
+        protected double saldo;
+
+         protected static final int AGENCIA_PADRAO = 1 ;
+ ...         
+}         
+         
+```
+
+```
+public class ContaCorrente extends Conta{
+
+    private static int SEQUENCIAL =1 ;
+
+    public ContaCorrente() {
+        super.agencia = Conta.AGENCIA_PADRAO ;
+        super.numero = SEQUENCIAL++;
+    }
+}
+```
+
+```
+public class ContaPoupanca extends Conta{
+
+    private static int SEQUENCIAL =1 ;
+
+    public ContaPoupanca() {
+        super.agencia = Conta.AGENCIA_PADRAO ;
+        super.numero = SEQUENCIAL++;
+    }
+
+}
+```
+
+
+
+**30** - Construtor para contaCorrente  / contaPoupança -refatorar  
+
+<font size="2">Refatorar significa mehorar o código , mantendo a funcionalidade geral.</font>  
+
+Da forma como esta no passo 29 , temos 2 situações :
+			codigo repetido
+			havera contas de tipos diferentes porem com o mesmo numero
+
+Para tratar isto precisamos levar o sequencial, e o proprio constutor  para dentro da classe Conta. Assim temos uma unica forma padrão de criarmos uma conta , independente do tipo.  E cada conta aberta, tera um numero único . 
+
+e como o cosntrutor agora esta dentro da classe Conta , podemos colocar as constantes como private, protrgendo-os de acesso externos. 
+
+```
+public abstract class Conta implements iConta {
+
+        private static final int AGENCIA_PADRAO = 1 ;
+        private static int SEQUENCIAL =1 ;
+    
+        // atributos
+        protected int agencia;
+        protected int numero;
+        protected double saldo;
+
+        // constutor de conta 
+        public Conta() {
+           this.agencia = AGENCIA_PADRAO ;
+            this .numero = SEQUENCIAL++;
+        }
+   ...        
+}        
+```
