@@ -1,4 +1,6 @@
-package fj.classes;
+package fj.interfaces;
+
+import fj.classes.Conta;
 
 public interface iConta {
 
@@ -8,6 +10,6 @@ public interface iConta {
 
     // assinatura de transferir -> tem que ser indicado o valor a ser movimentado
     // e para qual conta
-    void transferir( Conta contaDestino, Double valor);
+    void transferir(Conta contaDestino, Double valor);
 
 }

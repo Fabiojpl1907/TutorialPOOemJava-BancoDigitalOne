@@ -11,7 +11,7 @@ O objetivo deste atividade é apresentar a estrutura , decisões e técnicas uti
 A construção  
 
 - Se dará a partir de um codigo simples , o qual  será melhorado a cada introdução de um novo conceito dentro da Orientação a Objeto
-- registrado no git hub.  A  **main** conterá o compilado do projeto , e cada branch registrara os passos de cosntrução da solução , considerando os pilares da POO : Abstração / Encapsulamento / Herança / Polimorfismo, e outros pontos importantes do projeto. 
+- registrado no git hub.  A  **main** conterá o compilado do projeto , e cada branch registra os passos de construção da solução , considerando os pilares da POO : Abstração / Encapsulamento / Herança / Polimorfismo. 
 - Premisas : Conhecimento básico de Java e de alguma IDE. 
 - Fonte do projeto em java  : Criando um Banco Digital com Java e Orientação a Objetos. Prof. Venilton Favo Jr , Bootcamp Amdosc , Dio.
 
@@ -19,14 +19,14 @@ A construção
 
 | Passo | Ação / Conceito                                              |
 | :---: | ------------------------------------------------------------ |
-|   1   | Entender o problema , ou  domínio onde aplicação ira atuar. Nossa capacidde de construir a solução esta ligada diretamente  no conhecimento que temos do problema |
-|   2   | Situação a ser tratada <br />	“Um banco oferece aos seus clientes dois tipos de contas (corrente e poupança), as quais possuem as funcionalidades de depósito, saque e transferência(entre contas da própria instituição).” |
-|   3   | Conceito  ser implantado nos proximos passo<br />***Abstração*** - Habilidade de concentrar-se nos aspectos essenciais de um domínio, ignorando características menos importantes ou acidentais. Nesse contexto, objetos são abstrações de entidades existentes no domínio em questão. |
-|   4   | Criar o projeto em sua IDE preferida <br />construi minha versão com o  Intellij, em projeto simples , em Java 11.<br />Como boa prática, coloco codigos em pacotes ( packages), que tem como função organizar os vários códigos dentro dos papeis que cumpre na solução ( classes , interfaces , controles, etc ) |
-|   5   | Identificar no dominio , quais são os objetos, atributos e comportamentos do mundo real que vamos precisar implantar em nossa solução, e criar classes java para representar este objetos . Isto é abstrair a solução .<br />Em nosso dominio que um Banco , um *objeto* ou entidade  pode ser uma conta bancaria , esta conta possue como *atributo* o seu numero e agencia , e um *comportamento* esperado é ser possivel abrir conta e efetura deposito na mesma. |
-|   6   | Em Java , *objeto*/entidade são representado pelas *classes*, *Atributos* pelas *variaveis* , e o *comportamento* pelo *métodos* . |
+| **1** | Entender o problema , ou  domínio onde aplicação ira atuar. Nossa capacidde de construir a solução esta ligada diretamente  no conhecimento que temos do problema |
+| **2** | Situação a ser tratada <br />	“Um banco oferece aos seus clientes dois tipos de contas (corrente e poupança), as quais possuem as funcionalidades de depósito, saque e transferência(entre contas da própria instituição).” |
+| **3** | Conceito  ser implantado nos proximos passo<br />***Abstração*** - Habilidade de concentrar-se nos aspectos essenciais de um domínio, ignorando características menos importantes ou acidentais. Nesse contexto, objetos são abstrações de entidades existentes no domínio em questão. |
+| **4** | Criar o projeto em sua IDE preferida <br />construi minha versão com o  Intellij, em projeto simples , em Java 11.<br />Como boa prática, coloco codigos em pacotes ( packages), que tem como função organizar os vários códigos dentro dos papeis que cumpre na solução ( classes , interfaces , controles, etc ) |
+| **5** | Identificar no dominio , quais são os objetos, atributos e comportamentos do mundo real que vamos precisar implantar em nossa solução, e criar classes java para representar este objetos . Isto é abstrair a solução .<br />Em nosso dominio que um Banco , um *objeto* ou entidade  pode ser uma conta bancaria , esta conta possue como *atributo* o seu numero e agencia , e um *comportamento* esperado é ser possivel abrir conta e efetura deposito na mesma. |
+| **6** | Em Java , *objeto*/entidade são representado pelas *classes*, *Atributos* pelas *variaveis* , e o *comportamento* pelo *métodos* . |
 
-7 - Criar a estrutura de classes : Banco , Conta Corrente / Conta Poupança 
+**7** - Criar a estrutura de classes : Banco , Conta Corrente / Conta Poupança 
 
 ```
 public class Banco{ }
@@ -35,7 +35,7 @@ public class ContaPoupanca{ }
 public class Cliente{ }
 ```
 
-8 - Definir atributos , ou caracteristicas básicas que cada uma das entidades deve ter ( modelagem ) : 
+**8** - Definir atributos , ou caracteristicas básicas que cada uma das entidades deve ter ( modelagem ) : 
 
 ```
 public class ContaCorrente{ 
@@ -63,7 +63,7 @@ public Cliente {
 }
 ```
 
-9 - Definir comportamentos que as entidades podem realizar , ou seja , criar metodos . 
+**9** - Definir comportamentos que as entidades podem realizar , ou seja , criar metodos . 
 
 ```
 public class ContaCorrente{  
@@ -107,7 +107,7 @@ public Cliente {
 }
 ```
 
-10 - Conceito a ser implantado nos próximos passos - **Encapsulamento** 
+**10** - Conceito a ser implantado nos próximos passos - **Encapsulamento** 
 
 ```
 Encapsular significa esconder a implementação dos objetos, que não fazem sentido serem expostas, criando assim interfaces de uso mais concisas e fáceis de usar/entender. O encapsulamento favorece principalmente dois aspectos de um sistema: a manutenção e a evolução.
@@ -129,7 +129,7 @@ Outro exemplo usando os get (obter) e set (ajustar)
 
 
 
-11 - **Atributos não devem ser publicos** , por padão em java os atributos devem ser privados ( só a classe em que  foram criados acessa ) .Evita modificações acidentais e/ou erros de difícil identificação . Alterando nas classes . O métodos se mantem publicos pois serão as interfaces de uso  para realizar as ações necessárias ( sacar / depositar / transferir )
+**11** - **Atributos não devem ser publicos** , por padão em java os atributos devem ser privados ( só a classe em que  foram criados acessa ) .Evita modificações acidentais e/ou erros de difícil identificação . Alterando nas classes . O métodos se mantem publicos pois serão as interfaces de uso  para realizar as ações necessárias ( sacar / depositar / transferir )
 
 ```
 public class ContaCorrente{  
@@ -179,9 +179,9 @@ public Cliente {
 
 ```
 
-12 - Definir quando cada atributo pode ser alterado. O que vai poder ser ajustado somente em momentos espeficíficos, e o que poderia alterar a qualquer momento pelo usuário em uma interface . 
+**12** - Definir quando cada atributo pode ser alterado. O que vai poder ser ajustado somente em momentos espeficíficos, e o que poderia alterar a qualquer momento pelo usuário em uma interface . 
 
-14 - Em conta corrente e de poupança,a principio não tem lógica de negócio, alguem de fora ficar alterando  seus atributos . Assim vamos disponibilzar somente neste momento os Get ( obter a informação  )
+**13** - Em conta corrente e de poupança,a principio não tem lógica de negócio, alguem de fora ficar alterando  seus atributos . Assim vamos disponibilzar somente neste momento os Get ( obter a informação  )
 
 **Conta e numero** , só será fornecida no ato da abertura da conta
 
@@ -256,7 +256,7 @@ public class ContaPoupanca {
 
 
 
-15 - Para Banco e Cliente , neste momento vamos expor tanto a possibilidade de obter o valor atual do atributo  ( get ) , quanto a possibilidade  de ajustar os atributos ( set ) 
+**14** - Para Banco e Cliente , neste momento vamos expor tanto a possibilidade de obter o valor atual do atributo  ( get ) , quanto a possibilidade  de ajustar os atributos ( set ) 
 
 ```
 public class Banco {
@@ -290,7 +290,7 @@ public class Cliente {
 
 
 
-16 - Conceito a ser implantado nos próximos passos - **Herança** 
+**15** - Conceito a ser implantado nos próximos passos - **Herança** 
 
 ```
 Conceito que traz em sí a reutilização de código, evitando a duplicação desbecessária de código. Veja como as classes Conta Corrente e Conta Poupança tem códigos repetidos, estruturas identica , sinalinado que poderiamos term uma "super"classe , tambem chamada classe "pai". Herança traz o conceto de DRY ( Do not repat yorself). 
@@ -300,7 +300,7 @@ Herança: Permite que você defina uma classe filha que reutiliza (herda), esten
 
 
 
-17 - Criar a super classe (pai ) **Conta**  , com todas as caracteristicas que tem nas contacorrente / poupança 
+**16** - Criar a super classe (pai ) **Conta**  , com todas as caracteristicas que tem nas contacorrente / poupança 
 
 ```
 public class Conta { 
@@ -337,7 +337,7 @@ public class Conta {
 
 
 
-17 - Fazer com que as classe ContaCorrente e Conta Poupança  herdem as caracteristicas da classe pai Conta. 
+**17** - Fazer com que as classe ContaCorrente e Conta Poupança  herdem as caracteristicas da classe pai Conta. 
 
 Classe pai - Conta
 					atributos da classe pai :  agencia , numero , saldo
@@ -363,7 +363,7 @@ public class ContaPoupanca extends Conta {
 
 
 
-18 - Conceito a ser implantado nos próximos passos -  **Classe Interface** 
+**18** - Conceito a ser implantado nos próximos passos -  **Classe Interface** 
 
 ```
 Uma classe Interface apresenta um modelo de ação a ser mandatoriamente seguido por outras classes / métodos que executem esta ação ou regra de negócio . É uma forma de padronizarmos uma ação e garantirmos sua consistência durante a construção da solução de negócio. 
@@ -389,20 +389,20 @@ Usar classe  tipo Interface não é mandatório , mas, torna mais elegante , def
 
 
 
-19 - Criar uma classe tipo interface -iConta . 
+**19** - Criar uma classe tipo interface -iConta . 
 
-nota : Ao solicitar a criação uma nova classe , as IDEs disponibilizam um "lista de tipos" de classe , escolha "interface ". 
+<font size="2">nota : Ao solicitar a criação uma nova classe , as IDEs disponibilizam um "lista de tipos" de classe , escolha "interface ".    </font>
 
 ```
 public interface iConta {
 }
 ```
 
-20 - Trazer os métodos da classe Conta pra iConta 
 
-os métodos não terão corpo ( ações a realizar )
 
-Todo método em uma classe interface é publico, não é necessário explicitar como public.
+**20** - Trazer os métodos da classe Conta pra iConta 
+
+<font size="2">os métodos não terão corpo ( ações a realizar ).Todo método em uma classe interface é publico, não é necessário explicitar como public.</font>
 
 ```
 public interface iConta {
@@ -416,7 +416,7 @@ public interface iConta {
 
 
 
-21 - Pensando no contrato das interface  . Apresenta a "assinatura de métodos" , ou os atributos a serem manuseados em cada método , e  que outros classes/métodos  terão que respeitar.
+**21** - Definir o contrato das interface  . Apresenta a "assinatura de métodos" , ou os atributos a serem manuseados em cada método , e  que outros classes/métodos  terão que respeitar.
 
 ```
 public interface iConta {
@@ -424,15 +424,17 @@ public interface iConta {
 		// assinatura de sacar e depositar -> tem que ser indicado o valor a ser movimentado 
     void sacar( Double valor);
     void depositar(Double valor);
+    
     // assinatura de transferir -> tem que ser indicado o valor a ser movimentado
     // e para qual conta 
     void transferir( Conta contaDestino, Double valor);
+    
 }
 ```
 
 
 
-22 - Fazer com qua a classe **Conta** se ligue a classe **iConta** , e cumpra as regras da classe interface. Isto é feito informando que Conta **implementa** iConta
+**22** - Fazer com qua a classe **Conta** se ligue a classe **iConta** , e cumpra as regras da classe interface. Isto é feito informando que Conta **implementa** iConta
 
 ```
 public class Conta implements iConta {
@@ -461,35 +463,35 @@ public class Conta implements iConta {
 
 
 
-23 - Implementar os métodos na Classe conta - I 
+**23** - Implementar os métodos na Classe conta - I 
 
 Classe abstrata define as implementações, mas não a implementa, só apresenta a regra .  Delega a responsabilidade de implementação para a classe que estiver implementando ela .Mas apresenta a assinatura de métodos que as classes terão que respeitar. 
 
 Assim apos informar que  Conta implementa iConta as IDEs informam que há um  erro na "Conta" , pois esta faltando algo , a implentação das regras dadas pela classe interface . 
 
-As IDEs marcam isto , normalmente com uma anotação em vermelho na classe que implementa a inteface ( Conta )
+<font size="2">Nota: As IDEs marcam isto , normalmente com uma anotação em vermelho na classe que implementa a interface, e fornecem meio automatico de criar os metodosa serem implantados. Voce não recisa necessáriamente digitar os métodos . </font> 
 
 ![faltaImplements](https://tva1.sinaimg.cn/large/008i3skNgy1gy0og1fleuj30ag01ldfp.jpg)
 
 
 
-24 - Implementar os métodos na Classe conta - II 
+**24** - Implementar os métodos na classe Conta - II 
 
 Neste momento "criamos" ou implementamos os  métodos na Conta . Em um proximo passo vamos codificar estes métodos . 
 
-@Override indica que voce sobrescrevendo um método que está sendo herdado, neste caso da classe  interface iConta, ou seja a classe Conta neste momento é filha da classe iConta, e como "filha"vai cumprir as regras do "pai". 
+<font size="2">  @Override indica que voce sobrescrevendo um método que está sendo herdado, neste caso da classe  interface iConta, ou seja a classe Conta neste momento é filha da classe iConta, e como "filha"vai cumprir as regras do "pai". </font>
 
 ```
 public class Conta implements iConta {
         // atributos
-        private  int gencia;
+        private  int agencia;
         private int numero;
         private double saldo;
 
          // expor acesso - getters
         // sem expor os modificadores ( setters )
 
-        public int getGencia() {
+        public int getAgencia() {
             return gencia;
         }
 
@@ -520,7 +522,25 @@ public class Conta implements iConta {
 
 
 
-08:01
+**25** - Uma camada a mais de segurança e encapsulamento - Transformar  a classe "Conta" em Abstata , por questão estratégica. 
+
+Tornar a classe Conta abstrata , garanto que ninguem a instancie diretamente ( classe abstrata não pode ser instanciada) .
+
+Como a conta precisa ser ou corrente ou poupança , ao tornar Conta classe abstrata , garantimos que não será possivel instanciar/criar diretamente pela classe Conta , somente por suas filhas , contaCorrente, contaPoupança . 
+
+Para isto classifique como "public abstract class". 
+
+```
+public abstract class Conta implements iConta {
+....
+}
+```
+
+
+
+
+
+
 
 
 
