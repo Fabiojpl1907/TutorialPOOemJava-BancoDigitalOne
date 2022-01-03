@@ -2,21 +2,13 @@ package fj.classes;
 
 // Classe pai
 
-public class Conta {
+public class Conta implements iConta {
         // atributos
         private  int gencia;
         private int numero;
         private double saldo;
 
-        // comportamentos - métodos
-        public void sacar(){
-        }
-        public void depositar(){
-        }
-        public void transferir(){
-        }
-
-        // expor acesso - getters
+         // expor acesso - getters
         // sem expor os modificadores ( setters )
 
         public int getGencia() {
@@ -31,4 +23,18 @@ public class Conta {
             return saldo;
         }
 
+    @Override
+    public void sacar(Double valor) {
+
+    }
+
+    @Override
+    public void depositar(Double valor) {
+
+    }
+
+    @Override
+    public void transferir(Conta contaDestino, Double valor) {
+
+    }
 }

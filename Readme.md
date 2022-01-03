@@ -363,7 +363,164 @@ public class ContaPoupanca extends Conta {
 
 
 
-17 - Fazer c
+18 - Conceito a ser implantado nos próximos passos -  **Classe Interface** 
+
+```
+Uma classe Interface apresenta um modelo de ação a ser mandatoriamente seguido por outras classes / métodos que executem esta ação ou regra de negócio . É uma forma de padronizarmos uma ação e garantirmos sua consistência durante a construção da solução de negócio. 
+
+Recebe o nome de classe Abstrata, pois apresenta o modelo porem sem implementa-lo, cabe a outros objetos/metodos implementa-lo 
+
+Exemplo : Regra de negócio 
+
+1. em todo tipo de conta devo ter opção de enviar dinheiro para outra conta - transferir
+
+2. Ao transferir  deve-se obrigatoriamente informar o valor a ser transferido 
+
+   Dado a regra , cabe a cada funcionário ( método / classe) que movimentar uma conta cumprir e operacionalizar a regra. 
+
+A **interface** é um recurso muito utilizado em **Java**, bem como na maioria das linguagens orientadas a objeto, para “obrigar” a um determinado grupo de classes a ter métodos ou propriedades em comum para existir em um determinado contexto, contudo os métodos podem ser implementados em cada classe de uma maneira diferente.
+
+Exemplo : 
+	A transferencia  em conta corrente pode ser diferente da transferencia em conta poupança, porem ambas obrigatoriamente devem ter  alguma forma de transferencia, pois a regra de negócio assim determina. 
+
+Usar classe  tipo Interface não é mandatório , mas, torna mais elegante , define um contrato para a solução . Definir o contrato de uso significa definir os atributos aceitos e mandatório, alem de  deixar mais claro as varias opções da entidade / objeto. 
+		Exemplo :  No caso de Conta Bancária :  Sacar / Depositar / Transferir / etc .
+```
+
+
+
+19 - Criar uma classe tipo interface -iConta . 
+
+nota : Ao solicitar a criação uma nova classe , as IDEs disponibilizam um "lista de tipos" de classe , escolha "interface ". 
+
+```
+public interface iConta {
+}
+```
+
+20 - Trazer os métodos da classe Conta pra iConta 
+
+os métodos não terão corpo ( ações a realizar )
+
+Todo método em uma classe interface é publico, não é necessário explicitar como public.
+
+```
+public interface iConta {
+
+    void sacar();
+    void depositar();
+    void transferir();
+    
+}
+```
+
+
+
+21 - Pensando no contrato das interface  . Apresenta a "assinatura de métodos" , ou os atributos a serem manuseados em cada método , e  que outros classes/métodos  terão que respeitar.
+
+```
+public interface iConta {
+	
+		// assinatura de sacar e depositar -> tem que ser indicado o valor a ser movimentado 
+    void sacar( Double valor);
+    void depositar(Double valor);
+    // assinatura de transferir -> tem que ser indicado o valor a ser movimentado
+    // e para qual conta 
+    void transferir( Conta contaDestino, Double valor);
+}
+```
+
+
+
+22 - Fazer com qua a classe **Conta** se ligue a classe **iConta** , e cumpra as regras da classe interface. Isto é feito informando que Conta **implementa** iConta
+
+```
+public class Conta implements iConta {
+        // atributos
+        private  int gencia;
+        private int numero;
+        private double saldo;
+
+         // expor acesso - getters
+        // sem expor os modificadores ( setters )
+
+        public int getGencia() {
+            return gencia;
+        }
+
+        public int getNumero() {
+            return numero;
+        }
+
+        public double getSaldo() {
+            return saldo;
+        }
+
+}
+```
+
+
+
+23 - Implementar os métodos na Classe conta - I 
+
+Classe abstrata define as implementações, mas não a implementa, só apresenta a regra .  Delega a responsabilidade de implementação para a classe que estiver implementando ela .Mas apresenta a assinatura de métodos que as classes terão que respeitar. 
+
+Assim apos informar que  Conta implementa iConta as IDEs informam que há um  erro na "Conta" , pois esta faltando algo , a implentação das regras dadas pela classe interface . 
+
+As IDEs marcam isto , normalmente com uma anotação em vermelho na classe que implementa a inteface ( Conta )
+
+![faltaImplements](https://tva1.sinaimg.cn/large/008i3skNgy1gy0og1fleuj30ag01ldfp.jpg)
+
+
+
+24 - Implementar os métodos na Classe conta - II 
+
+Neste momento "criamos" ou implementamos os  métodos na Conta . Em um proximo passo vamos codificar estes métodos . 
+
+@Override indica que voce sobrescrevendo um método que está sendo herdado, neste caso da classe  interface iConta, ou seja a classe Conta neste momento é filha da classe iConta, e como "filha"vai cumprir as regras do "pai". 
+
+```
+public class Conta implements iConta {
+        // atributos
+        private  int gencia;
+        private int numero;
+        private double saldo;
+
+         // expor acesso - getters
+        // sem expor os modificadores ( setters )
+
+        public int getGencia() {
+            return gencia;
+        }
+
+        public int getNumero() {
+            return numero;
+        }
+
+        public double getSaldo() {
+            return saldo;
+        }
+
+    @Override
+    public void sacar(Double valor) {
+        
+    }
+
+    @Override
+    public void depositar(Double valor) {
+
+    }
+
+    @Override
+    public void transferir(Conta contaDestino, Double valor) {
+
+    }
+}
+```
+
+
+
+08:01
 
 
 
@@ -374,28 +531,6 @@ public class ContaPoupanca extends Conta {
 notas a serem utilizadas 
 
 ---------------------------------
-
-**Interface**
-
-É uma classe abstrata com todos os métodos abstratos  
-
-Classe abstrata solicita alguma implementação que ela sozinha não consegue resolver . Delega a responsabilidade de implementação para a classe que estiver implementando ela .
-
-Classe abstrata não pode ser instanciada. Só que pode instancia-la são as classes filhas . Logo posso tar uma classe como abstrata se não quiser que seja instanciada . Ex. : Não faz sentido ser  instanciada uma conta sem qualificação, precisa ser Conta Corrente ou Conta Poupança .  
-
-Torna mais elegante , define um contrato para a solução . Definir o contrato de uso significa definir os atributos aceitos e mandatórios.  
-
-Todo método em uma interface é publico, não é necessário explicitar como public. 
-
-Faço com que a classe implemente interface criada ( implements ) . 
-Exemplo *public abstract class Conta implements iConta { .... }* 
-
-Uso da Interface não é obrigatório mas deixa mais claro as varias opções da entidade 
-Exemplo :  No caso de Conta Bancária :  Sacar / Depositar / Transferir / etc .
-
- 
-
-
 
 **Polimorfismo**
 
