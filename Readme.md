@@ -676,3 +676,170 @@ public abstract class Conta implements iConta {
    ...        
 }        
 ```
+
+
+
+**31** - Implementar método na classe Conta - **depositar()**
+
+```
+@Override
+public void depositar(Double valor) {
+
+        this.saldo += valor;
+}
+```
+
+**32**- Implementar método na classe Conta - **sacar()**
+
+```
+@Override
+public void sacar(Double valor) {
+      this.saldo -= valor;
+}
+```
+
+**32**- Implementar método na classe Conta - **transferir()**
+
+```
+@Override
+public void transferir(Conta contaDestino, Double valor) {
+
+    // da instancia que estiver chamando a transferencia
+    // é sacado dinheiro
+    this.sacar(valor);
+    // a conta que esta recebendo transferencia
+    // é depositado dinheiro
+    contaDestino.depositar(valor);
+
+}
+```
+
+**33**- Criar metodo imprimir Extrato 
+
+primeiramente na iConta ( interface) 
+
+```
+public interface iConta {
+
+    // assinatura de sacar e depositar -> tem que ser indicado o valor a ser movimentado
+    void sacar( Double valor);
+    void depositar(Double valor);
+
+    // assinatura de transferir -> tem que ser indicado o valor a ser movimentado
+    // e para qual conta
+    void transferir(Conta contaDestino, Double valor);
+
+    void imprimirExtrato(); 
+
+}
+```
+
+após esta criacao , perceba que a IDE alerta que é necessario implementar o metodo imprimirExtrato na classes contaCorrente e contaPoupança . 
+
+```
+public class ContaCorrente extends Conta {
+
+    @Override
+    public void imprimirExtrato() {
+        System.out.println("----Extrato Conta Corrente----");
+        System.out.println(String.format("Agencia: %d", super.agencia));
+        System.out.println(String.format("Conta: %d", super.numero));
+        System.out.println(String.format("Saldo: %.2f", super.saldo));
+    }
+}
+```
+
+```
+public class ContaPoupanca extends Conta{
+
+    @Override
+    public void imprimirExtrato() {
+        System.out.println("----Extrato Conta Poupança----");
+        System.out.println(String.format("Agencia: %d", super.agencia));
+        System.out.println(String.format("Conta: %d", super.numero));
+        System.out.println(String.format("Saldo: %.2f", super.saldo));
+    }
+
+}
+```
+
+Mas , novamente  temos codigo repetido . Vamos refatorar  e colocar o codigo repetido dentro da classe Conta . Colocando como protected garanto que so as filhas consegue utiliza-lo. 
+
+```
+public abstract class Conta implements iConta {
+
+... 
+
+	protected  void imprimirAtributosConta() {
+    System.out.println(String.format("Agencia: %d", this.agencia));
+    System.out.println(String.format("Conta: %d", this.numero));
+    System.out.println(String.format("Saldo: %.2f", this.saldo));
+	}
+
+}
+```
+
+E chama-lo nas classes filhas 
+
+```
+public class ContaPoupanca extends Conta{
+
+    @Override
+    public void imprimirExtrato() {
+        System.out.println("----Extrato Conta Poupança----");
+        super.imprimirAtributosConta();
+    }
+
+}
+```
+
+```
+public class ContaCorrente extends Conta {
+
+    @Override
+    public void imprimirExtrato() {
+        System.out.println("----Extrato Conta Corrente----");
+        super.imprimirAtributosConta();
+
+    }
+}
+```
+
+
+
+**34** - Criar metodo de contole operacional  do Banco . 
+
+A classe onde as coisas vão realmente  acontecer . Cria conta , depositar , etc 
+
+```
+public class DigitalOneBank {
+    public static void main(String[] args) {
+
+
+        // usando polimorfismo
+        // pode usar refencia como Conta ou ContaCorrente e/ou ContaPoupanca
+        // para instanciar ( criar ) as contas .
+        // ContaCorrente cc = new ContaCorrente();
+        Conta cc = new ContaCorrente();
+        Conta cp = new ContaPoupanca();
+
+        // depositar na cc
+        cc.depositar(100.0);
+
+        // impimir extratos
+        cc.imprimirExtrato();
+        cp.imprimirExtrato();
+
+        // transferir para a poupança
+        // se olharmos o metodo transferir espera uma Conta
+        // mas ele entende de Conta e ContaPoupanca são contas e aceita o ação
+        // Polimorfismo
+        cc.transferir(cp , 100.0);
+
+        // impimir extratos
+        cc.imprimirExtrato();
+        cp.imprimirExtrato();
+
+    }
+}
+```

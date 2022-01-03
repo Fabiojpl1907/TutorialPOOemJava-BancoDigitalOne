@@ -12,4 +12,6 @@ public interface iConta {
     // e para qual conta
     void transferir(Conta contaDestino, Double valor);
 
+    void imprimirExtrato();
+
 }

@@ -39,16 +39,31 @@ public abstract class Conta implements iConta {
 
     @Override
     public void sacar(Double valor) {
-
+                this.saldo -= valor;
     }
 
     @Override
     public void depositar(Double valor) {
 
+            this.saldo += valor;
     }
 
     @Override
     public void transferir(Conta contaDestino, Double valor) {
 
+        // da instancia que estiver chamando a transferencia
+        // é sacado dinheiro
+        this.sacar(valor);
+        // a conta que esta recebendo transferencia
+        // é depositado dinheiro
+        contaDestino.depositar(valor);
+
     }
+
+    protected  void imprimirAtributosConta() {
+        System.out.println(String.format("Agencia: %d", this.agencia));
+        System.out.println(String.format("Conta: %d", this.numero));
+        System.out.println(String.format("Saldo: %.2f", this.saldo));
+    }
+
 }
