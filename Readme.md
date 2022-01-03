@@ -597,7 +597,7 @@ Colocando isto no construtor não corre o risco de ser criada agencia com outro 
 
 <font size="2"> Notas</font> 
 
-<font size="2"> 1. o **super** faz a IDE procurar os atributos disponieis na classe pai da classe onde estou </font> 
+<font size="2"> 1. O **super** faz a IDE procurar os atributos disponvieis na classe pai da classe onde estou </font> 
 
 <font size="2">2. Como em Conta , os atributos estão protected , ao digitar **super.**  a IDE ja nos mostra a lista de atributos/metodos pra escolher  </font>
 
