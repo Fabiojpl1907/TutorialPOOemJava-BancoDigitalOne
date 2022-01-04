@@ -13,11 +13,14 @@ public abstract class Conta implements iConta {
         protected int agencia;
         protected int numero;
         protected double saldo;
+        // usando uma classe como tipo de um atributo
+        protected Cliente cliente;
 
         // constutor de conta
-        public Conta() {
+        public Conta(Cliente cliente) {
            this.agencia = AGENCIA_PADRAO ;
            this .numero = SEQUENCIAL++;
+           this.cliente = cliente;
         }
 
 
@@ -61,6 +64,7 @@ public abstract class Conta implements iConta {
     }
 
     protected  void imprimirAtributosConta() {
+        System.out.println(String.format("Titulat: %s", this.cliente.getNome()));
         System.out.println(String.format("Agencia: %d", this.agencia));
         System.out.println(String.format("Conta: %d", this.numero));
         System.out.println(String.format("Saldo: %.2f", this.saldo));

@@ -1,19 +1,24 @@
 package fj.controle;
 
+import fj.classes.Cliente;
 import fj.classes.Conta;
 import fj.classes.ContaCorrente;
 import fj.classes.ContaPoupanca;
 
 public class DigitalOneBank {
     public static void main(String[] args) {
-
+        // criar cliente
+        Cliente novoCliente = new Cliente();
+        novoCliente.setNome("Fábio José");
 
         // usando polimorfismo
-        // pode usar refencia como Conta ou ContaCorrente e/ou ContaPoupanca
+        // pode usar referencia  como Conta ou ContaCorrente e/ou ContaPoupanca
         // para instanciar ( criar ) as contas .
         // ContaCorrente cc = new ContaCorrente();
-        Conta cc = new ContaCorrente();
-        Conta cp = new ContaPoupanca();
+
+        // indicar nome do cliente
+        Conta cc = new ContaCorrente(novoCliente);
+        Conta cp = new ContaPoupanca(novoCliente);
 
         // depositar na cc
         cc.depositar(100.0);

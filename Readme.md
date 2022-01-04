@@ -807,9 +807,22 @@ public class ContaCorrente extends Conta {
 
 
 
-**34** - Criar metodo de contole operacional  do Banco . 
+**34** - Criar metodo "Main" de contole operacional  do Banco . 
 
 A classe onde as coisas vão realmente  acontecer . Cria conta , depositar , etc 
+
+Neste ponto o uso do polimorfismo  fica mais direto.
+
+Para instanciar  uma nova conta ,  pode usar referencia como *Conta* ou *ContaCorrente* e/ou *ContaPoupanca*, ambas vao criar uma nova conta 
+									ContaCorrente cc = new ContaCorrente();
+									Conta cc = new ContaCorrente();
+
+​							ContaPoupanca cc = new ContaPoupanca();
+​									Conta cc = new ContaPoupanca();
+
+Veja tambem nos comentários do codigo , o polimorfismo no metodod transferir ()
+
+<font size="2"> **Nota**: Algumas pessoas chamam esta classe de "Main" , eu prefiro dar um nome mais significado do projeto ( DigitalOneBank )</font> 
 
 ```
 public class DigitalOneBank {
@@ -817,7 +830,7 @@ public class DigitalOneBank {
 
 
         // usando polimorfismo
-        // pode usar refencia como Conta ou ContaCorrente e/ou ContaPoupanca
+        // pode usar referencia como Conta ou ContaCorrente e/ou ContaPoupanca
         // para instanciar ( criar ) as contas .
         // ContaCorrente cc = new ContaCorrente();
         Conta cc = new ContaCorrente();
@@ -841,5 +854,90 @@ public class DigitalOneBank {
         cp.imprimirExtrato();
 
     }
+}
+```
+
+
+
+**35** - Incluir cliente ao criar conta 
+
+a. incluir atributo cliente, do tipo Cliente na classe Conta 
+
+```
+public abstract class Conta implements iConta {
+
+        private static final int AGENCIA_PADRAO = 1 ;
+        private static int SEQUENCIAL =1 ;
+
+        // atributos
+        protected int agencia;
+        protected int numero;
+        protected double saldo;
+        // usando uma classe como tipo de um atributo
+        protected Cliente cliente;
+   ....
+ }
+```
+
+b. Tornar mandatório que toda conta tenha um cliente, ajustando o construtor da classe Conta  .  
+
+```
+public abstract class Conta implements iConta {
+ ... 
+// constutor de conta
+    public Conta(Cliente cliente) {
+       this.agencia = AGENCIA_PADRAO ;
+       this .numero = SEQUENCIAL++;
+       this.cliente = cliente;
+    }
+  ...
+}
+
+```
+
+c. Como foi alterado o construtor da classe pai , falado que uma conta tem quer ter um Cliente , é necessario ajustar as classes filhas ( que são contas ) .
+
+<font size="2">Nota: A própria IDE sinaliza a necessidade de criar um construtor nas classes filha, e fornece um meio simles de fazer isto . De uma olhada nas mensagens que sua iDE emite. </font>
+
+```
+public class ContaPoupanca extends Conta{
+
+    public ContaPoupanca(Cliente cliente) {
+        super(cliente);
+    }
+    
+	...
+}
+```
+
+```
+public class ContaCorrente extends Conta {
+
+    public ContaCorrente(Cliente cliente) {
+        super(cliente);
+    }
+	....
+} 
+```
+
+d.  forma de criar conta precisa ser ajustada a nova realidade de *Cliente ser mandatório* .Assim vamos ajustar a criação de conta. 
+
+​	. instanciar um cliente
+​			. ajustar  nome do cliente
+​			. informar nome do cliente na instanciação da conta
+
+```
+public class DigitalOneBank {
+    public static void main(String[] args) {
+    
+        // criar cliente 
+        Cliente novoCliente = new Cliente();
+        novoCliente.setNome("Fábio José");
+        
+        // indicar nome do cliente 
+        Conta cc = new ContaCorrente(novoCliente);
+        Conta cp = new ContaPoupanca(novoCliente);
+        
+     ...
 }
 ```

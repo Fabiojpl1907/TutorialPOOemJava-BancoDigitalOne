@@ -10,7 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/fj/classes/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/classes/Conta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fj/classes/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/classes/ContaCorrente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fj/classes/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/classes/ContaPoupanca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fj/interfaces/iConta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/interfaces/iConta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fj/controle/DigitalOneBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/controle/DigitalOneBank.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
