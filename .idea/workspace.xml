@@ -7,9 +7,8 @@
     <list default="true" id="afc41461-d741-481f-bd72-aa738f1a560f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fj/classes/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/classes/Banco.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fj/classes/Conta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/classes/Conta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fj/classes/ContaCorrente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/classes/ContaCorrente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fj/classes/ContaPoupanca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/classes/ContaPoupanca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fj/controle/DigitalOneBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fj/controle/DigitalOneBank.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

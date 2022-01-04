@@ -5,6 +5,9 @@ import fj.classes.Conta;
 import fj.classes.ContaCorrente;
 import fj.classes.ContaPoupanca;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DigitalOneBank {
     public static void main(String[] args) {
         // criar cliente
@@ -36,6 +39,8 @@ public class DigitalOneBank {
         // impimir extratos
         cc.imprimirExtrato();
         cp.imprimirExtrato();
+
+
 
     }
 }

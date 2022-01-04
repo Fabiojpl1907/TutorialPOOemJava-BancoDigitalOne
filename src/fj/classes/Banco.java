@@ -1,8 +1,11 @@
 package fj.classes;
 
+import java.util.List;
+
 public class Banco {
     // atributos
     private String nome;
+
 
     public String getNome() {
         return nome;
@@ -11,4 +14,5 @@ public class Banco {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 }

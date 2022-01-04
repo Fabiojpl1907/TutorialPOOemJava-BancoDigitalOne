@@ -923,8 +923,10 @@ public class ContaCorrente extends Conta {
 d.  forma de criar conta precisa ser ajustada a nova realidade de *Cliente ser mandatório* .Assim vamos ajustar a criação de conta. 
 
 ​	. instanciar um cliente
-​			. ajustar  nome do cliente
-​			. informar nome do cliente na instanciação da conta
+
+​	. ajustar  nome do cliente
+
+​	. informar nome do cliente na instanciação da conta
 
 ```
 public class DigitalOneBank {
@@ -941,3 +943,24 @@ public class DigitalOneBank {
      ...
 }
 ```
+
+e.  Alterar o metodo de impressão, na classe conta ,  para imprimir o nome do cliente.
+
+Vamos utilizar o metodo acesseor getNome() para termos acesso ao nome do cliente, e ajutsra a apresentação do nome com %s.  
+
+```
+{ 
+....
+    protected  void imprimirAtributosConta() {
+        System.out.println(String.format("Titular: %s", this.cliente.getNome()));
+        System.out.println(String.format("Agencia: %d", this.agencia));
+        System.out.println(String.format("Conta: %d", this.numero));
+        System.out.println(String.format("Saldo: %.2f", this.saldo));
+    }
+...
+}
+```
+
+
+
+##### Neste ponto termina o tutorial . Tenha sucesso em seus estudos e carreira.
